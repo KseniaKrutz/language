@@ -1,0 +1,8 @@
+datasets>=3.0.0
+huggingface_hub>=0.26.0
+sentencepiece>=0.2.0
+pandas>=2.2.0
+numpy>=1.26.0
+scipy>=1.12.0
+matplotlib>=3.8.0
+tqdm>=4.66.0

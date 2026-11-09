@@ -1,0 +1,117 @@
+{
+  "project": "Stochastic modeling of subword token sequences",
+  "seed": 42,
+  "languages": [
+    {
+      "name": "English",
+      "code": "eng",
+      "group": "analytic_control",
+      "priority": "core"
+    },
+    {
+      "name": "Russian",
+      "code": "rus",
+      "group": "fusional",
+      "priority": "core"
+    },
+    {
+      "name": "German",
+      "code": "deu",
+      "group": "fusional",
+      "priority": "core"
+    },
+    {
+      "name": "Spanish",
+      "code": "spa",
+      "group": "fusional",
+      "priority": "core"
+    },
+    {
+      "name": "Turkish",
+      "code": "tur",
+      "group": "agglutinative",
+      "priority": "core"
+    },
+    {
+      "name": "Finnish",
+      "code": "fin",
+      "group": "agglutinative",
+      "priority": "core"
+    },
+    {
+      "name": "Hungarian",
+      "code": "hun",
+      "group": "agglutinative",
+      "priority": "core"
+    },
+    {
+      "name": "Mandarin Chinese",
+      "code": "zho",
+      "group": "isolating",
+      "priority": "core"
+    },
+    {
+      "name": "Vietnamese",
+      "code": "vie",
+      "group": "isolating",
+      "priority": "core"
+    },
+    {
+      "name": "Navajo",
+      "code": "nav",
+      "group": "polysynthetic",
+      "priority": "extended"
+    },
+    {
+      "name": "Inuktitut",
+      "code": "iku",
+      "group": "polysynthetic",
+      "priority": "extended"
+    },
+    {
+      "name": "Greenlandic",
+      "code": "kal",
+      "group": "polysynthetic",
+      "priority": "extended"
+    },
+    {
+      "name": "Japanese",
+      "code": "jpn",
+      "group": "additional"
+    }
+  ],
+  "corpus": {
+    "metadata_dataset": "imvladikon/leipzig_corpora_collection",
+    "preferred_sources": [
+      "news",
+      "wikipedia",
+      "web"
+    ],
+    "preferred_size": "100K",
+    "max_sentences_per_language": 100000,
+    "min_sentence_chars": 10,
+    "max_sentence_chars": 1000
+  },
+  "experiment": {
+    "algorithms": [
+      "bpe",
+      "unigram"
+    ],
+    "vocab_sizes": [
+      8000
+    ],
+    "seeds": [
+      13
+    ],
+    "train_fraction": 0.8,
+    "max_eval_sentences": 1000,
+    "max_ngram_train_tokens": 50000,
+    "max_ngram_eval_tokens": 10000,
+    "max_markov_order": 4,
+    "smoothing_alpha": 0.1,
+    "sampling_repetitions": 5,
+    "sampling_alpha": 0.2,
+    "sentencepiece_character_coverage_latin": 1.0,
+    "sentencepiece_character_coverage_cjk": 0.9995
+  }
+}
