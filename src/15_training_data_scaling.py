@@ -44,14 +44,33 @@ def read_lines(path):
         return [x.strip() for x in f if x.strip()]
 
 
+
 def manifest_entries():
     data = json.loads(MANIFEST.read_text(encoding="utf-8"))
+
     if isinstance(data, list):
         return data
-    for key in ("languages", "items", "corpora"):
-        if isinstance(data.get(key), list):
-            return data[key]
-    raise ValueError("Unrecognized prepared_manifest.json structure")
+
+    if isinstance(data, dict):
+        languages = data.get("languages")
+
+        if isinstance(languages, dict):
+            return [
+                {"code": code, **info}
+                for code, info in languages.items()
+            ]
+
+        if isinstance(languages, list):
+            return languages
+
+        for key in ("items", "corpora"):
+            if isinstance(data.get(key), list):
+                return data[key]
+
+    raise ValueError(
+        "Unrecognized prepared_manifest.json structure"
+    )
+
 
 
 def get_code(item):
